@@ -9,8 +9,8 @@ import com.nightspawn.strongtypes.examples.NonEmptyString;
 public class StringValidatorTest extends ValidatorTestBase<String> {
 
 	@Test
-	public void foo() throws IllegalArgumentException, SecurityException,
-			InstantiationException, IllegalAccessException,
+	public void testStrings() throws IllegalArgumentException,
+			SecurityException, InstantiationException, IllegalAccessException,
 			InvocationTargetException {
 
 		String[] validStrings = { "1", "22", "\ntralala" };
@@ -19,6 +19,7 @@ public class StringValidatorTest extends ValidatorTestBase<String> {
 		expectedException.expect(InvocationTargetException.class);
 		String[] emptyStrings = { "", null };
 		testAll(emptyStrings, NonEmptyStringTest.class, 2, "false negative, ");
+
 	}
 
 	static class NonEmptyStringTest extends SimpleValueObject<String> {
